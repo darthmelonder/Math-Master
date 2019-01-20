@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block styling %}
+<link rel="stylesheet" href="{% static 'home_style.css' %}" />
+{% endblock %}
+{% block content %}
+<div class="game_status">
+<h2> GAME ID: {{ game_id }} </h2>
+<h2> NAME: {{ name }} </h2>
+<h2 id="wins"> WINS: {{ wins }} </h2>
+<br/>
+{% if rounds %}
+	<h2 id="rounds">ROUNDS LEFT: {{ rounds }} </h2>
+{% else %}
+	<h2 id="seconds">TIME LEFT: </h2>
+{% endif %}
+</div>
+<div class="scorecard (TOP 5)">
+	<table style="width: 400px; font-size: 24px">
+		<tr>
+			<th> Player Name </th>
+			<th> WINS </th>
+		</tr>
+		{% for p in  players  %}
+			<tr>
+				<th> {{ p.name }} </th>
+				<th> {{ p.wins }} </th>
+			</tr>
+			<br/>
+		{% endfor %}
+	</table>
+</div>
+<br/><br/>
+<div class="question">
+<h3 id="prompt"> SOLVE THIS!!!</h3>
+<h3> {{ question }} </h3>
+<input id="answer" type="text" style="width: 400px" />
+<br /> <br/> <br/> <br />
+<input id="submit" value ="submit" type="submit" style = "color: white; background-color: #036AAD; border-radius: 20px; border: 2px solid #036AAD; width: 400px; height: 40px" />
+</div>
+<script>
+	var csrf_token = "{{ csrf_token }}"
+	var answer = "{{ answer }}"
+	var name = "{{ name }}"
+	var game_id = "{{ game_id }}"
+	var wins = "{{ wins }}"
+</script>
+<script src="{% static 'game.js' %}"> </script>
+<form id="hidden_form" action="/start_game/" method="post">
+{% csrf_token %}
+<input type="hidden" name="name" value="{{ name }}" />
+<input type="hidden" name="game_id" value="{{ game_id }}" />
+<input type="hidden" id="wins_input" name="wins" value="0" />
+</form>
+{% endblock %}

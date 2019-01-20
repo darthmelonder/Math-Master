@@ -1,0 +1,83 @@
+body {
+
+	background-image: url("maths.jpg");
+	color: white;
+	background-position: center;
+	background-repeat: no-repeat;
+  background-size: cover;
+}
+.main_heading
+{
+	padding-left: 800px;
+}
+.create
+{
+	padding-top: 100px;
+	padding-left: 100px;
+}
+.join
+{
+	padding-top: 130px;
+	padding-left: 100;
+}
+[type="text"]
+{
+	height: 40px;
+}
+[type="number"]
+{
+	height: 40px;
+}
+[type="submit"]
+{
+	cursor: pointer;
+}
+.waiting
+{
+	padding-left: 400px;
+	padding-top: 50px;
+}
+.game_status
+{
+	padding-left: 600px;
+}
+.question
+{
+	padding-top: 10px;
+	padding-left: 20px;
+}
+#submit
+{
+	cursor: pointer;
+}
+.scorecard
+{
+	font-size: 30px;
+	padding-left: 70%;
+
+}
+.results
+{
+	padding-left: 400px;
+}
+footer {
+	padding-left: 40rem;
+    padding-bottom: 3rem;
+	font-size: 18px;
+}
+.contact
+{
+	float: left;
+	padding-top: 5px;
+	padding-left: 250px;
+	padding-right: 10px;
+}
+.contact2
+{
+	padding-top: 5px;
+	padding-left: 10px;
+}
+a
+{
+	color: green;
+}

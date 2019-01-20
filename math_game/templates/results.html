@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block styling %}
+<link rel="stylesheet" href="{% static 'home_style.css' %}" />
+{% endblock %}
+{% block content %}
+	<div class="results">
+		<h2> RESULT SCORECARD </h2>
+		<table style="width: 600px; font-size: 32px">
+		<tr>
+			<th> Player Name </th>
+			<th> WINS </th>
+		</tr>
+		{% for p in  winners  %}
+			<tr>
+				<th> {{ p.name }} </th>
+				<th> {{ p.wins }} </th>
+			</tr>
+			<br/>
+		{% endfor %}
+	</table>
+	</div>
+{% endblock %}

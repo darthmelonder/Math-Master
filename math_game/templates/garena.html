@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+{% block styling %}
+<link rel="stylesheet" href="{% static 'home_style.css' %}" />
+{% endblock %}
+{% block content %}
+{% if error %}
+	<h1> {{ error }} </h1>
+{% else %}
+<div class="waiting">
+<h1> Hi {{ name }} </h1>
+<h2> YOUR GAME ID: {{ game_id }} </h2>
+<h3> Please Tell Other Players to join your game using this Game ID!! </h3>
+<h3> Your Game will start as soon as the desired number of players you mentioned enters the game arena!! </h4>
+<h3> Waiting for oponents!!.. </h3>
+<h3> Players in Arena: </h3>
+<ol id="plist">
+</ol>
+<script>
+	var game_id = "{{ game_id }}"
+	var name = "{{ name }}"
+	var csrf_token = "{{ csrf_token }}"
+</script>
+<script src="{% static 'garena.js' %}"></script>
+<form id="hidden_form" action="/start_game/" method="post">
+{% csrf_token %}
+<input type="hidden" name="name" value="{{ name }}" />
+<input type="hidden" name="game_id" value="{{ game_id }}" />
+<input type="hidden" name="wins" value="0" />
+</form>
+</div>
+{% endif %}
+{% endblock %}
